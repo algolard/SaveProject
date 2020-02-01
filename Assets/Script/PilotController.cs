@@ -33,7 +33,7 @@ public class PilotController : MonoBehaviour {
 			isMove = true;
 		}
 		if (isMove) {
-			mainCamera.transform.position = transform.position + new Vector3(0, 7.5f, -5);
+			CameraFollow();
 			if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
 			{
 				animator.SetBool("Walk", false);
@@ -55,6 +55,11 @@ public class PilotController : MonoBehaviour {
 			speed = WALK_SPEED;
 		}
 	}
+
+	void CameraFollow()
+	{
+		mainCamera.transform.position = transform.position + new Vector3(0, 7.5f, -5);
+	}
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
@@ -62,6 +67,7 @@ public class PilotController : MonoBehaviour {
 		WALK_SPEED = Time.deltaTime;
 		RUN_SPEED = 2 * Time.deltaTime;
 		speed = WALK_SPEED;
+		CameraFollow();
 	}
 	
 	// Update is called once per frame

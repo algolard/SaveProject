@@ -8,15 +8,15 @@ public class Crew : Character {
 	NavMeshAgent agent;
 	NavMeshObstacle obstacle;
 	Animator animator;
-	int state;
-	const int STANDING = 0;
-	const int FOLLOWING = 1;
-	const int RELAXING = 2;
-	const int WORKING = 3;
-	const int FIGHTING = 4;
-	const float GIVE_UP_DISTANCE = 20;
-	const float RUN_DISTANCE = 7;
-	const float STOP_DISTANCE = 3;
+	public int state;
+	public const int STANDING = 0;
+	public const int FOLLOWING = 1;
+	public const int RELAXING = 2;
+	public const int WORKING = 3;
+	public const int FIGHTING = 4;
+	public const float GIVE_UP_DISTANCE = 20;
+	public const float RUN_DISTANCE = 9;
+	public const float STOP_DISTANCE = 5;
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
