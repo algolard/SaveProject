@@ -63,7 +63,6 @@ public class PilotController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
-		print(Time.deltaTime);
 		WALK_SPEED = Time.deltaTime;
 		RUN_SPEED = 2 * Time.deltaTime;
 		speed = WALK_SPEED;

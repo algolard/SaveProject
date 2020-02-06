@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour {
+
 	public int hp;
 	public int mood;
 	public int hunger;
@@ -11,6 +12,8 @@ public class Character : MonoBehaviour {
 	public int maxHp;
 	public int maxMood;
 	public int maxHunger;
+	public string characterName;
+	public bool selected;
 	const int maxEQ = 10;
 	const int NORMAL = 0;
 	const int STRONG = 1;
@@ -27,14 +30,14 @@ public class Character : MonoBehaviour {
 		}
 	}
 
-
+	
 	// Use this for initialization
 	void Start () {
-		
+		//material = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
+		selected = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 }

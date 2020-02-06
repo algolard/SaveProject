@@ -14,6 +14,7 @@ public class Crew : Character {
 	public const int RELAXING = 2;
 	public const int WORKING = 3;
 	public const int FIGHTING = 4;
+	public const int COLLECTING = 5;
 	public const float GIVE_UP_DISTANCE = 20;
 	public const float RUN_DISTANCE = 9;
 	public const float STOP_DISTANCE = 5;
@@ -25,6 +26,10 @@ public class Crew : Character {
 		state = FOLLOWING;
 	}
 	
+	public void SetState(int state)
+	{
+		this.state = state;
+	}
 	void Follow()
 	{
 		
@@ -43,7 +48,6 @@ public class Crew : Character {
 				}
 				else
 				{
-					print(name + " move");
 					if(Vector3.Distance(transform.position, pilot.transform.position) < RUN_DISTANCE)
 					{
 						animator.SetBool("Walk", true);
@@ -61,7 +65,6 @@ public class Crew : Character {
 				}
 			}
 			else{
-				print(name + "stop");
 				transform.LookAt(pilot.transform.position);
 				animator.SetBool("Walk", false);
 				animator.SetBool("Run", false);
@@ -72,8 +75,19 @@ public class Crew : Character {
 		}
 	}
 
+	void Standing()
+	{
+		if (state == STANDING) {
+			animator.SetBool("Walk", false);
+			animator.SetBool("Run", false);
+			agent.nextPosition = transform.position;
+			agent.enabled = false;
+			obstacle.enabled = true;
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 		Follow();
+		Standing();
 	}
 }
